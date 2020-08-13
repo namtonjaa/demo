@@ -9,7 +9,7 @@ EXPOSE 8080
 
 # The application's jar file
 
-ARG JAR_FILE=target/demo-0.0.1-SNAPSHOT.jar
+ARG JAR_FILE=target/demo-0.0.1.jar
 
 # use the value to set the ENV var default
 

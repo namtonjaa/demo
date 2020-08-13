@@ -42,7 +42,7 @@ pipeline {
                   [
                     artifactId: 'demo',
                     classifier: '',
-                    file: 'target/demo-0.0.1-SNAPSHOT.jar',
+                    file: 'target/demo-0.0.1.jar',
                     type: 'jar'
                   ]
                 ],
@@ -52,7 +52,7 @@ pipeline {
                 nexusVersion: 'nexus2',
                 protocol: 'http',
                 repository: '192.168.19.15:8081/ascendcorp/demo',
-                version: '0.0.1-SNAPSHOT'
+                version: '0.0.1'
             }
         }
     }
