@@ -38,21 +38,23 @@ pipeline {
 
         stage('Upload .jar file to nexus') {
             steps {
-                nexusArtifactUploaderartifacts: [
-                  [
-                    artifactId: 'demo',
-                    classifier: '',
-                    file: 'target/demo-0.0.1.jar',
-                    type: 'jar'
-                  ]
-                ]
-                credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
-                groupId: 'com.example',
-                nexusUrl: '192.168.19.15:8081',
-                nexusVersion: 'nexus2',
-                protocol: 'http',
-                repository: '192.168.19.15:8081/ascendcorp/demo',
-                version: '0.0.1'
+                nexusArtifactUploader(
+                    nexusVersion: 'nexus3',
+                    protocol: 'http',
+                    nexusUrl: '192.168.19.15:8081',
+                    groupId: 'com.example',
+                    version: '0.0.1',
+                    repository: '192.168.19.15:8081/ascendcorp/demo',
+                    credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
+                    artifacts: [
+                        [
+                            artifactId: demo,
+                            classifier: '',
+                            file: 'target/demo-0.0.1.jar',
+                            type: 'jar'
+                        ]
+                    ]
+                )
             }
         }
     }
