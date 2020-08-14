@@ -45,7 +45,7 @@ pipeline {
                 nexusUrl: '192.168.19.15:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
-                repository: 'docker',
+                repository: 'docker/v2/ascendcorp/demo',
                 version: '0.0.1'
             }
         }
