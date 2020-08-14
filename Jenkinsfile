@@ -40,7 +40,7 @@ pipeline {
                         type: 'jar'
                     ]
                 ],
-                credentialsId: '',
+                credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
                 groupId: 'com.example',
                 nexusUrl: '192.168.19.15:8081',
                 nexusVersion: 'nexus3',
