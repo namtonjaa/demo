@@ -1,14 +1,14 @@
 pipeline {
     agent any
-     environment {
-            DOCKER_REPOSITORY = '192.168.19.15:8082/ascendcorp/demo'
-            REPOSITORY = 'demo'
-            TAGS = "latest"
-            REPOSITORY_TAGS =" ${DOCKER_REPOSITORY}:${TAGS}"
-            REGISTRY_CREDENTIAL = 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91'
-            EXPOSE_PORT= "8080"
-            EXECUTE_USER=""
-        }
+    environment {
+        DOCKER_REPOSITORY = '192.168.19.15:8082/ascendcorp/demo'
+        REPOSITORY = 'demo'
+        TAGS = "latest"
+        REPOSITORY_TAGS =" ${DOCKER_REPOSITORY}:${TAGS}"
+        REGISTRY_CREDENTIAL = 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91'
+        EXPOSE_PORT= "8080"
+        EXECUTE_USER=""
+    }
 
     stages {
         stage('Notification') {
