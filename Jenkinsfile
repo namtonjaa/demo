@@ -34,19 +34,19 @@ pipeline {
             steps {
                 nexusArtifactUploader artifacts: [
                     [
-                        artifactId: 'spring-boot-starter-parent',
+                        artifactId: 'demo',
                         classifier: '',
                         file: 'target/demo-0.0.1.jar',
                         type: 'jar'
                     ]
                 ],
                 credentialsId: '',
-                groupId: 'org.springframework.boot',
+                groupId: 'com.example',
                 nexusUrl: '192.168.19.15:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',
                 repository: 'docker/v2/ascendcorp',
-                version: '2.3.2.RELEASE'
+                version: '0.0.1'
             }
         }
     }
