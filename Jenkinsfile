@@ -45,7 +45,7 @@ pipeline {
                     file: 'target/demo-0.0.1.jar',
                     type: 'jar'
                   ]
-                ],
+                ]
                 credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
                 groupId: 'com.example',
                 nexusUrl: '192.168.19.15:8081',
