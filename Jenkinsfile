@@ -39,7 +39,7 @@ pipeline {
                     groupId: 'com.example',
                     version: '0.0.1',
                     repository: '192.168.19.15:8082/repository/docker/',
-                    credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
+                    credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c92',
                     artifacts: [
                         // Artifact generated such as .jar, .ear and .war files.
                         [
