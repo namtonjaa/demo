@@ -1,6 +1,10 @@
 pipeline {
     agent any
     environment {
+        DOCKER_REPOSITORY = 'ascendcorp/ptvn-supplier-connect-api'
+        TAGS = "latest"
+        REGISTRY_CREDENTIAL = 'central_login_for_dockerhub'
+        REPOSITORY_TAGS =" ${DOCKER_REPOSITORY}:${TAGS}"
         EXECUTE_USER=""
     }
 
@@ -30,23 +34,14 @@ pipeline {
             }
         }
 
-        stage('Upload .jar file to nexus') {
+        stage('Build Docker Images') {
             steps {
-                nexusArtifactUploader artifacts: [
-                    [
-                        artifactId: 'demo',
-                        classifier: '',
-                        file: 'target/demo-0.0.1.jar',
-                        type: 'jar'
-                    ]
-                ],
-                credentialsId: 'b177bdc7-0f89-4b5e-8d5f-bb521bb16c91',
-                groupId: 'com.example',
-                nexusUrl: '192.168.19.15:8081',
-                nexusVersion: 'nexus3',
-                protocol: 'http',
-                repository: 'docker/v2/ascendcorp',
-                version: '0.0.1'
+
+                echo "${DOCKER_REPOSITORY}:${TAGS}"
+                script {
+                   sh "docker build  -t ${DOCKER_REPOSITORY}:${TAGS}  -f Dockerfile ."
+                   sh 'docker images'
+                }
             }
         }
     }
