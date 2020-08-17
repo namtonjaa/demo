@@ -49,6 +49,7 @@ pipeline {
                 echo "${DOCKER_REPOSITORY}:${TAGS}"
                 script {
                     sh 'docker tag ${DOCKER_REPOSITORY}:${TAGS} 192.168.19.15:8081/${DOCKER_REPOSITORY}:${TAGS}'
+                    sh 'docker images'
                 }
             }
         }
