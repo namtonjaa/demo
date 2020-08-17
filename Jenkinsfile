@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_REPOSITORY = 'ascendcorp/ptvn-supplier-connect-api'
+        DOCKER_REPOSITORY = 'ascendcorp/demo-ptvn-scf'
         TAGS = "latest"
         REGISTRY_CREDENTIAL = 'central_login_for_dockerhub'
         REPOSITORY_TAGS =" ${DOCKER_REPOSITORY}:${TAGS}"
