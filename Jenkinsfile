@@ -5,7 +5,7 @@ pipeline {
         TAGS = "latest"
         REGISTRY_CREDENTIAL = 'central_login_for_dockerhub'
         REPOSITORY_TAGS ="${DOCKER_REPOSITORY}:${TAGS}"
-        NEXUS_URL="192.168.19.15:8081"
+        NEXUS_URL="192.168.19.15:8082"
         EXECUTE_USER=""
     }
 
@@ -50,7 +50,7 @@ pipeline {
                 echo "${DOCKER_REPOSITORY}:${TAGS}"
                 script {
                     sh 'docker tag ${DOCKER_REPOSITORY}:${TAGS} ${NEXUS_URL}/${DOCKER_REPOSITORY}:${TAGS}'
-                    sh 'docker push 192.168.19.15:8082/${DOCKER_REPOSITORY}:${TAGS}'
+                    sh 'docker push ${NEXUS_URL}/${DOCKER_REPOSITORY}:${TAGS}'
                     sh 'docker images'
                 }
             }
