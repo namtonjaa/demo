@@ -36,7 +36,6 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-
                 echo "${DOCKER_REPOSITORY}:${TAGS}"
                 script {
                    sh "docker build  -t ${DOCKER_REPOSITORY}:${TAGS}  -f Dockerfile ."
@@ -44,5 +43,12 @@ pipeline {
                 }
             }
         }
+
+        stage('Push Docker Images to Nexus3') {
+            steps {
+                echo "${DOCKER_REPOSITORY}:${TAGS}"
+            }
+        }
+
     }
 }
