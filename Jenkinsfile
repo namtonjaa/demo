@@ -49,9 +49,9 @@ pipeline {
             steps {
                 echo "${DOCKER_REPOSITORY}:${TAGS}"
                 script {
-                    sh 'docker tag ${DOCKER_REPOSITORY}:${TAGS} 192.168.19.15:8081/repository/docker/v2/ascendcorp/${DOCKER_REPOSITORY}:${TAGS}'
+                    sh 'docker tag ${DOCKER_REPOSITORY}:${TAGS} 192.168.19.15:8081/v2/ascendcorp${DOCKER_REPOSITORY}:${TAGS}'
                     sh 'docker images'
-                    sh 'docker push 192.168.19.15:8081/repository/docker/v2/ascendcorp/${DOCKER_REPOSITORY}:${TAGS}'
+                    sh 'docker push 192.168.19.15:8081/v2/ascendcorp${DOCKER_REPOSITORY}:${TAGS}'
                 }
             }
         }
