@@ -47,8 +47,13 @@ pipeline {
         stage('Push Docker Images to Nexus3') {
             steps {
                 echo "${DOCKER_REPOSITORY}:${TAGS}"
+                sh 'docker login -u supakorn.gan -p P@ssw0rd 192.168.19.15:8081'
+                sh 'docker push 192.168.19.15:8081/repository/docker/v2/ascendcorp/${DOCKER_REPOSITORY}:${TAGS}}'
+                sh 'docker rmi $(docker images --filter=reference="192.168.19.15:8081/repository/docker/v2/ascendcorp/${DOCKER_REPOSITORY}:${TAGS}*" -q)'
+                sh 'docker logout 192.168.19.15:8081'
             }
         }
+
 
     }
 }
